@@ -34,10 +34,10 @@
         </ScrollViewer>
         <Popup HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="StandardPopup">
             <Grid>
-                <StackPanel Background="#00000000" x:Name="PopupPanel1" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button  Tapped="ButtonStop_Tapped" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1280" Height="800" Margin="0,0,0,0" FocusVisualSecondaryBrush="Red" Background="#AA000000"/>
+                <StackPanel Background="#00000000" x:Name="PopupAddCocktailPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button Content="Stop" Tapped="ButtonCancel_Tapped" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1280" Height="800" Margin="0,0,0,0" FocusVisualSecondaryBrush="Red" Background="#AA000000"/>
                 </StackPanel>
-                <StackPanel Background="#CCFFFFFF" x:Name="PopupPanel2" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Background="#CCFFFFFF" x:Name="PopupPanel2" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel.Resources>
                         <Style TargetType="TextBlock">
                             <Setter Property="FontSize" Value="30" />
@@ -58,39 +58,91 @@
                             <Setter Property="Height" Value="100"/>
                         </Style>
                     </StackPanel.Resources>
-                    <StackPanel x:Name="CocktailNamePanel"/>
+                    <StackPanel x:Name="CocktailNamePanel">
+                        <TextBox PlaceholderText="Name" Width="440" Margin="0,30,0,30" x:Name="AddCocktailNameField" FontSize="30" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+
+                    </StackPanel>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
 
 
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" HorizontalAlignment="Center" x:Name="PercentagePanel">
                             <StackPanel.Resources>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="FontSize" Value="30" />
+                                <Style TargetType="TextBox">
+                                    <Setter Property="FontSize" Value="19" />
                                     <Setter Property="FontFamily" Value="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
                                     <Setter Property="HorizontalAlignment" Value="Center"/>
-                                    <Setter Property="Margin" Value="0,10,0,0"/>
+                                    <Setter Property="Margin" Value="0,1,0,0"/>
                                     <Setter Property="Foreground" Value="#FF333333"/>
                                 </Style>
                             </StackPanel.Resources>
+                            <TextBox x:Name="Percentage1" Width="80" InputScope="Number"/>
+                            <TextBox x:Name="Percentage2" Width="80" InputScope="Number"/>
+                            <TextBox x:Name="Percentage3" Width="80" InputScope="Number"/>
+                            <TextBox x:Name="Percentage4" Width="80" InputScope="Number"/>
+                            <TextBox x:Name="Percentage5" Width="80" InputScope="Number"/>
+                            <TextBox x:Name="Percentage6" Width="80" InputScope="Number"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1"  x:Name="BottlePanel">
                             <StackPanel.Resources>
                                 <Style TargetType="TextBlock">
-                                    <Setter Property="FontSize" Value="30" />
+                                    <Setter Property="FontSize" Value="20" />
                                     <Setter Property="FontFamily" Value="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
-                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
                                     <Setter Property="Margin" Value="0,10,0,0"/>
                                     <Setter Property="Foreground" Value="#FF333333"/>
                                 </Style>
                             </StackPanel.Resources>
+                            <TextBlock x:Name="Bottle1" Width="200" Visibility="Visible"/>
+                            <TextBlock x:Name="Bottle2" Width="200" Visibility="Visible"/>
+                            <TextBlock x:Name="Bottle3" Width="200" Visibility="Visible"/>
+                            <TextBlock x:Name="Bottle4" Width="200" Visibility="Visible"/>
+                            <TextBlock x:Name="Bottle5" Width="200" Visibility="Visible"/>
+                            <TextBlock x:Name="Bottle6" Width="200" Visibility="Visible"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="3"  x:Name="PercentagePanel2">
+                            <StackPanel.Resources>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="FontSize" Value="19" />
+                                    <Setter Property="FontFamily" Value="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="Margin" Value="0,1,0,0"/>
+                                    <Setter Property="Foreground" Value="#FF333333"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBox x:Name="Percentage7" Width="80" InputScope="Number"/>
+                            <TextBox x:Name="Percentage8" Width="80" InputScope="Number"/>
+                            <TextBox x:Name="Percentage9" Width="80" InputScope="Number"/>
+                            <TextBox x:Name="Percentage10" Width="80" InputScope="Number"/>
+                            <TextBox x:Name="Percentage11" Width="80" InputScope="Number"/>
+                            <TextBox x:Name="Percentage12" Width="80" InputScope="Number"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="4"  x:Name="BottlePanel2">
+                            <StackPanel.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="FontSize" Value="20" />
+                                    <Setter Property="FontFamily" Value="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="Margin" Value="0,10,0,0"/>
+                                    <Setter Property="Foreground" Value="#FF333333"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock x:Name="Bottle7" Width="200" Visibility="Visible"/>
+                            <TextBlock x:Name="Bottle8" Width="200" Visibility="Visible"/>
+                            <TextBlock x:Name="Bottle9" Width="200" Visibility="Visible"/>
+                            <TextBlock x:Name="Bottle10" Width="200" Visibility="Visible"/>
+                            <TextBlock x:Name="Bottle11" Width="200" Visibility="Visible"/>
+                            <TextBlock x:Name="Bottle12" Width="200" Visibility="Visible"/>
                         </StackPanel>
                     </Grid>
-                    <Button Content="Edit" Tapped="Edit_Tapped" HorizontalAlignment="Center"/>
+                    <Button Content="Save" Tapped="Edit_Tapped" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Grid>
         </Popup>
@@ -100,11 +152,6 @@
             </Button.Background>
         </Button>
         <TextBlock HorizontalAlignment="Center" Margin="0,52,0,0" Text="Edit cocktail" TextWrapping="Wrap" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" VerticalAlignment="Top" Foreground="White" FontSize="80"/>
-        <Button HorizontalAlignment="Right" Margin="0,20,20,0" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" VerticalAlignment="Top" Width="48" Height="48">
-            <Button.Background>
-                <ImageBrush ImageSource="/Assets/Icons/Icon_Filter.png"/>
-            </Button.Background>
-        </Button>
     </Grid>
 
 </Page>
