@@ -29,15 +29,12 @@ namespace Carbro.Screens
     /// </summary>
     public sealed partial class Screen_EditCocktail : Page
     {
-
         bool emulation = true;
 
-
         List<Cocktails> cocktaillist;
+        List<Bottles> bottleList;
         JsonHelper jh = new JsonHelper();
         string CocktailName = "";
-
-
 
         public Screen_EditCocktail()
         {
@@ -48,17 +45,17 @@ namespace Carbro.Screens
             this.InitializeComponent();
             cocktaillist = new List<Cocktails>();
             cocktaillist = jh.ReadCocktailsJsonToList();
+            bottleList = new List<Bottles>();
+            bottleList = jh.ReadBottlesJsonToList();
             addCocktails();
             
         }
 
         public void addCocktails()
         {
-            
-
+            CocktailWindow.Children.Clear();
             foreach (var item in cocktaillist)
             {
-
                 Button b = new Button();
                 b.Content = item.Name;
                 b.FontFamily = new FontFamily("/Assets/Fonts/HoboStd.otf#Hobo Std");
@@ -71,57 +68,62 @@ namespace Carbro.Screens
                 b.Tapped += CocktailSelected;
                 CocktailWindow.Children.Add(b);
             }
-
-
-            
         }
+
         public void CocktailSelected(object sender, TappedRoutedEventArgs e)
         {
             GeneratePopup(((Button)sender).Content.ToString());
             CocktailName = ((Button)sender).Content.ToString();
             // open the Popup if it isn't open already 
-            if (!StandardPopup.IsOpen) { StandardPopup.IsOpen = true; }
-            
-
+            if (!PopupEditCocktail.IsOpen) { PopupEditCocktail.IsOpen = true; }
         }
         private void ButtonStop_Tapped(object sender, RoutedEventArgs e)
         {
             // if the Popup is open, then close it 
-            if (StandardPopup.IsOpen) { StandardPopup.IsOpen = false; }
-            PercentagePanel.Children.Clear();
-            BottlePanel.Children.Clear();
-            CocktailNamePanel.Children.Clear();
+            if (PopupEditCocktail.IsOpen) { PopupEditCocktail.IsOpen = false; }
+        }
+
+        private void ButtonCancel_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (PopupEditCocktail.IsOpen) { PopupEditCocktail.IsOpen = false; }
         }
 
         public void GeneratePopup(string cocktailName)
         {
             Cocktails c = cocktaillist.Find(x => x.Name == cocktailName);
-
-            TextBlock tbName = new TextBlock();
-            tbName.Text = c.Name;
-            
-            CocktailNamePanel.Children.Add(tbName);
-            foreach (var item in c.Liquids)
-            {
-                TextBlock tbValue = new TextBlock();
-                tbValue.Text = item.Value.ToString() + "%";
-                TextBlock tbBottle = new TextBlock();
-                tbBottle.Text = item.Key;
-                PercentagePanel.Children.Add(tbValue);
-                BottlePanel.Children.Add(tbBottle);
-            }
-            
-
-            
+            EditCocktailNameField.Text = c.Name;
+            FillBottleNamesEditCocktail();
+            FillPercentageEditCocktail(c);
         }
 
         private void Edit_Tapped(object sender, TappedRoutedEventArgs e)
         {
-           
+            Cocktails c = cocktaillist.Find(x => x.Name == CocktailName);
+            c.Name = EditCocktailNameField.Text;
+            List<KeyValuePair<string, int>> listkvpBottles = new List<KeyValuePair<string, int>>();
+
+            int bottleId = 2000;
+            for (int i = 1; i < bottleList.Count + 1; i++)
+            {
+                string bottlenumber = "Percentage" + i.ToString();
+                bottleId++;
+                if (((TextBox)this.FindName(bottlenumber)).Text != "")
+                {
+                    if (Int32.Parse(((TextBox)this.FindName(bottlenumber)).Text) != 0)
+                    {
+                        KeyValuePair<string, int> kvpbottle = new KeyValuePair<string, int>(bottleList.Find(x => x.ID == (bottleId)).Name, Int32.Parse(((TextBox)this.FindName(bottlenumber)).Text));
+                        listkvpBottles.Add(kvpbottle);
+                    }
+
+                }
+
+            }
+            c.Liquids = listkvpBottles;
+            jh.WriteListToJson(cocktaillist);
+            if (PopupEditCocktail.IsOpen) { PopupEditCocktail.IsOpen = false; }
+            addCocktails();
         }
-
-       
-
+        
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
 
@@ -130,6 +132,35 @@ namespace Carbro.Screens
         private void Settings_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Settings));
+        }
+
+        private void Back_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Settings));
+        }
+
+        private void FillBottleNamesEditCocktail()
+        {
+            int bottleId = 2000;
+            for (int i = 1; i < bottleList.Count + 1; i++)
+            {
+                string bottlenumber = "Bottle" + i.ToString();
+                bottleId++;
+                ((TextBlock)this.FindName(bottlenumber)).Text = bottleList.Find(x => x.ID == (bottleId)).Name;
+            }
+
+        }
+
+        private void FillPercentageEditCocktail(Cocktails c)
+        {
+            int i = 1;
+            string percentagenumber;
+            foreach (var item in c.Liquids)
+            {
+                percentagenumber = "Percentage" + i.ToString();
+                ((TextBox)this.FindName(percentagenumber)).Text = item.Value.ToString();
+                i++;
+            }
         }
 
         private async void OpenNewPageAsync(Type pageName)
@@ -143,24 +174,10 @@ namespace Carbro.Screens
                     var frame = new Frame();
                     frame.Navigate(pageName, null);
                     Window.Current.Content = frame;
-
                     viewId = ApplicationView.GetForCurrentView().Id;
-
-
                     Window.Current.Activate();
-
                 });
             var viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(viewId);
-
-
-        }
-
-
-        private void Back_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Settings));
-
         }
     }
-
 }
