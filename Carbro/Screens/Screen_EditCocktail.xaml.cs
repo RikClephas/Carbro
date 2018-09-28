@@ -91,6 +91,7 @@ namespace Carbro.Screens
         public void GeneratePopup(string cocktailName)
         {
             Cocktails c = cocktaillist.Find(x => x.Name == cocktailName);
+            EditCocktailNameField.Text = "";
             EditCocktailNameField.Text = c.Name;
             FillBottleNamesEditCocktail();
             FillPercentageEditCocktail(c);
@@ -142,13 +143,16 @@ namespace Carbro.Screens
         private void FillBottleNamesEditCocktail()
         {
             int bottleId = 2000;
+            string bottlenumber;
+            string percentagenumber;
             for (int i = 1; i < bottleList.Count + 1; i++)
             {
-                string bottlenumber = "Bottle" + i.ToString();
+                bottlenumber = "Bottle" + i.ToString();
+                percentagenumber = "Percentage" + i.ToString();
                 bottleId++;
+                ((TextBox)this.FindName(percentagenumber)).Text = "";
                 ((TextBlock)this.FindName(bottlenumber)).Text = bottleList.Find(x => x.ID == (bottleId)).Name;
             }
-
         }
 
         private void FillPercentageEditCocktail(Cocktails c)
