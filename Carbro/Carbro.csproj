@@ -108,6 +108,9 @@
     <Compile Include="Screens\Screen_AddCocktail.xaml.cs">
       <DependentUpon>Screen_AddCocktail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\Screen_RemoveCocktail.xaml.cs">
+      <DependentUpon>Screen_RemoveCocktail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Screen_EditCocktail.xaml.cs">
       <DependentUpon>Screen_EditCocktail.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
     <Page Include="Screens\Screen_AddCocktail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screens\Screen_RemoveCocktail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Screens\Screen_EditCocktail.xaml">
       <Generator>MSBuild:Compile</Generator>

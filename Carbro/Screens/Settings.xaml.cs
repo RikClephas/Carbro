@@ -47,6 +47,10 @@ namespace Carbro.Screens
             this.Frame.Navigate(typeof(Screen_EditCocktail));
         }
 
+        private void RemoveCocktail_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Screen_RemoveCocktail));
+        }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
