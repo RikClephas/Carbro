@@ -24,12 +24,12 @@ namespace Carbro.Screens
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Settings : Page
+    public sealed partial class UnlockedSettings : Page
     {
         JsonHelper jh = new JsonHelper();
         List<Bottles> bottleList = new List<Bottles>();
         
-        public Settings()
+        public UnlockedSettings()
         {
             bottleList = jh.ReadBottlesJsonToList();
 
@@ -49,7 +49,7 @@ namespace Carbro.Screens
 
         private void RemoveCocktail_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            
+            this.Frame.Navigate(typeof(Screen_RemoveCocktail));
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
@@ -61,8 +61,7 @@ namespace Carbro.Screens
         private void ButtonCancel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (PopupAddCocktail.IsOpen) { PopupAddCocktail.IsOpen = false; }
-            if (PopupUnlock.IsOpen) { PopupUnlock.IsOpen = false; }
-
+            
         }
 
         private void Add_Tapped(object sender, TappedRoutedEventArgs e)
@@ -105,24 +104,18 @@ namespace Carbro.Screens
             {
                 string bottlenumber = "Bottle" + i.ToString();
                 bottleId++;
-                ((TextBlock)this.FindName(bottlenumber)).Text = bottleList.Find(x => x.ID == (bottleId)).Name;
+                
+
+                   ((TextBlock)this.FindName(bottlenumber)).Text = bottleList.Find(x => x.ID == (bottleId)).Name;
+                
             }
+
         }
 
         private void SettingsBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Screen_Cocktails));
-        }
+            this.Frame.Navigate(typeof(Settings));
 
-        private void Unlock_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            if (!PopupUnlock.IsOpen) { PopupUnlock.IsOpen = true; }
-        }
-
-        private void Unlock_Button_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            if (PopupUnlock.IsOpen) { PopupUnlock.IsOpen = false; }
-            this.Frame.Navigate(typeof(UnlockedSettings));
         }
     }
 

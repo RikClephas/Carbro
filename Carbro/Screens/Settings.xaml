@@ -20,7 +20,7 @@
         <Popup HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="PopupAddCocktail">
             <Grid>
                 <StackPanel Background="#00000000" x:Name="PopupAddCocktailPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button Content="Stop" Tapped="ButtonCancel_Tapped" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1280" Height="800" Margin="0,0,0,0" FocusVisualSecondaryBrush="Red" Background="#AA000000"/>
+                    <Button Content="" Tapped="ButtonCancel_Tapped" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1280" Height="800" Margin="0,0,0,0" FocusVisualSecondaryBrush="Red" Background="#AA000000"/>
                 </StackPanel>
                 <StackPanel Background="#CCFFFFFF" x:Name="PopupPanel2" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <StackPanel.Resources>
@@ -132,13 +132,47 @@
             </Grid>
         </Popup>
 
+        <Popup HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="PopupUnlock">
+            <Grid>
+                <StackPanel Background="#00000000" x:Name="PopupUnlockPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button Content="" Tapped="ButtonCancel_Tapped" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1280" Height="800" Margin="0,0,0,0" FocusVisualSecondaryBrush="Red" Background="#AA000000"/>
+                </StackPanel>
+                <StackPanel Background="#CCFFFFFF" x:Name="PopupPanel3" Width="1000" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="30" />
+                            <Setter Property="FontFamily" Value="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0,30,0,30"/>
+                            <Setter Property="Foreground" Value="#FF333333"/>
+                        </Style>
+                        <Style TargetType="Button">
+                            <Setter Property="FontSize" Value="60" />
+                            <Setter Property="Background" Value="Green"/>
+                            <Setter Property="FontFamily" Value="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0,30,0,30"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+                            <Setter Property="Width" Value="440"/>
+                            <Setter Property="Height" Value="100"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <StackPanel x:Name="UnlockNamePanel">
+                        <TextBox PlaceholderText="Code" Width="440" Margin="0,30,0,30" x:Name="UnlockNameField" InputScope="Number" FontSize="30" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+                    </StackPanel>
+                    <Button Content="Unlock" Tapped="Unlock_Button_Tapped" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Popup>
+
         <Button Content="" Tapped="SettingsBack_Tapped" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="48" Height="48">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_Left.png"/>
             </Button.Background>
         </Button>
         <TextBlock HorizontalAlignment="Center" Margin="0,52,0,0" Text="Settings" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="80"/>
-        <Button Content="" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button Content=""  Tapped="Unlock_Tapped" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
@@ -153,27 +187,27 @@
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Edit.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="RemoveCocktail_Tapped" HorizontalAlignment="Center" Margin="300,250,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="300,250,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Trash.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" Margin="900,250,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="900,250,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Bottle.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" Margin="-600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" Opacity="0.3">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="-600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" Opacity="0.3">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Clean.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" Margin="0,520,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="0,520,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Gauge.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" Margin="600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" Opacity="0.3">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" Opacity="0.3">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Power.png"/>
             </Button.Background>
@@ -186,37 +220,30 @@
         <TextBlock HorizontalAlignment="Center" Margin="-600,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Clean machine" Opacity="0.3"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Calibrate pumps" Opacity="0.3"/>
         <TextBlock HorizontalAlignment="Center" Margin="600,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Shutdown" Opacity="0.3"/>
-        <Button Content="" HorizontalAlignment="Center" Margin="410,330,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="410,330,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" Margin="1010,330,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="1010,330,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="370,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="370,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" Margin="110,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="110,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="970,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="970,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
         </Button>
-
-
-
-
-
-
-
     </Grid>
 </Page>
