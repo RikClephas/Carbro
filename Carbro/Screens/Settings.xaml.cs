@@ -116,7 +116,7 @@ namespace Carbro.Screens
 
         private void Unlock_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            UnlockCodeField.Text = "Enter Code";
+            UnlockCodeField.Text = "";
             if (!PopupUnlock.IsOpen) { PopupUnlock.IsOpen = true; }
             UnlockCodeField.Focus(FocusState.Pointer);
             UnlockCodeField.SelectAll();
@@ -126,13 +126,15 @@ namespace Carbro.Screens
         {
             if (UnlockCodeField.Text == "1234")
             {
-                UnlockCodeField.Text = "0";
+                UnlockCodeField.Text = "";
                 if (PopupUnlock.IsOpen) { PopupUnlock.IsOpen = false; }
                 this.Frame.Navigate(typeof(UnlockedSettings));
             }
             else
             {
-                UnlockCodeField.Text = "Wrong Code";
+                UnlockCodeField.Text = "";
+                UnlockCodeField.Focus(FocusState.Pointer);
+                UnlockCodeField.SelectAll();
             }
         }
     }

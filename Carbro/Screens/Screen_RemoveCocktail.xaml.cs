@@ -125,20 +125,10 @@ namespace Carbro.Screens
             if (PopupRemoveCocktail.IsOpen) { PopupRemoveCocktail.IsOpen = false; }
             addCocktails();
         }
-        
-        private void Button_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-
-        }
-
-        private void Settings_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Settings));
-        }
 
         private void Back_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Settings));
+            this.Frame.Navigate(typeof(UnlockedSettings));
         }
 
         private void FillBottleNamesRemoveCocktail()
