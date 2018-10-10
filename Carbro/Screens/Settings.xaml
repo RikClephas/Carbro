@@ -158,8 +158,8 @@
                             <Setter Property="Height" Value="100"/>
                         </Style>
                     </StackPanel.Resources>
-                    <StackPanel x:Name="UnlockNamePanel">
-                        <TextBox PlaceholderText="Code" Width="440" Margin="0,30,0,30" x:Name="UnlockNameField" InputScope="Number" FontSize="30" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+                    <StackPanel x:Name="UnlockCodePanel">
+                        <TextBox PlaceholderText="Enter Code" Width="440" Margin="0,30,0,30" x:Name="UnlockCodeField" InputScope="Number" FontSize="30" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
                     </StackPanel>
                     <Button Content="Unlock" Tapped="Unlock_Button_Tapped" HorizontalAlignment="Center"/>
                 </StackPanel>
