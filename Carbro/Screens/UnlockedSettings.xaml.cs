@@ -61,7 +61,8 @@ namespace Carbro.Screens
         private void ButtonCancel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (PopupAddCocktail.IsOpen) { PopupAddCocktail.IsOpen = false; }
-            
+            if (PopupShutdown.IsOpen) { PopupShutdown.IsOpen = false; }
+
         }
 
         private void Add_Tapped(object sender, TappedRoutedEventArgs e)
@@ -117,6 +118,30 @@ namespace Carbro.Screens
             this.Frame.Navigate(typeof(Settings));
 
         }
-    }
 
+        private void ManageBottles_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void CleanMachine_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void CalibratePumps_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void Shutdown_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (!PopupShutdown.IsOpen) { PopupShutdown.IsOpen = true; }
+        }
+
+        private void ShutdownButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
+    }
 }

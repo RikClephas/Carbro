@@ -132,6 +132,37 @@
             </Grid>
         </Popup>
 
+        <Popup HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="PopupShutdown">
+            <Grid>
+                <StackPanel Background="#00000000" x:Name="PopupShutdownPanel" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button Content="" Tapped="ButtonCancel_Tapped" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1280" Height="800" Margin="0,0,0,0" FocusVisualSecondaryBrush="Red" Background="#AA000000"/>
+                </StackPanel>
+                <Grid Background="#CCFFFFFF" x:Name="PopupShutdownPanel2" Width="1000" Height="520" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="30" />
+                            <Setter Property="FontFamily" Value="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0,30,0,30"/>
+                            <Setter Property="Foreground" Value="#FF333333"/>
+                        </Style>
+                        <Style TargetType="Button">
+                            <Setter Property="FontSize" Value="60" />
+                            <Setter Property="Background" Value="Green"/>
+                            <Setter Property="FontFamily" Value="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="0,30,0,30"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+                            <Setter Property="Width" Value="440"/>
+                            <Setter Property="Height" Value="100"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Button Content="Shutdown" Tapped="ShutdownButton_Tapped" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </Popup>
+
         <Button Content="" Tapped="SettingsBack_Tapped" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="48" Height="48">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_Left.png"/>
@@ -153,22 +184,22 @@
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Trash.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" Margin="900,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
+        <Button Content="" Tapped="ManageBottles_Tapped" HorizontalAlignment="Center" Margin="900,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Bottle.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" Margin="-600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button Content="" Tapped="CleanMachine_Tapped" HorizontalAlignment="Center" Margin="-600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Clean.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" Margin="0,520,0,0" VerticalAlignment="Top" Width="128" Height="128">
+        <Button Content="" Tapped="CalibratePumps_Tapped" HorizontalAlignment="Center" Margin="0,520,0,0" VerticalAlignment="Top" Width="128" Height="128">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Gauge.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Center" Margin="600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button Content="" Tapped="Shutdown_Tapped" HorizontalAlignment="Center" Margin="600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Power.png"/>
             </Button.Background>
