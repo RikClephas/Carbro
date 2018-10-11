@@ -169,24 +169,19 @@
             </Button.Background>
         </Button>
         <TextBlock HorizontalAlignment="Center" Margin="0,52,0,0" Text="Settings" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="80"/>
-        <Button Content="" Tapped="AddCocktail_Tapped" HorizontalAlignment="Center" Margin="-900,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
+        <Button Content="" Tapped="AddCocktail_Tapped" HorizontalAlignment="Center" Margin="-600,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Cocktail.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="EditCocktail_Tapped" HorizontalAlignment="Center" Margin="-300,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
+        <Button Content="" Tapped="EditCocktail_Tapped" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Edit.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="RemoveCocktail_Tapped" HorizontalAlignment="Center" Margin="300,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
+        <Button Content="" Tapped="RemoveCocktail_Tapped" HorizontalAlignment="Center" Margin="600,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Trash.png"/>
-            </Button.Background>
-        </Button>
-        <Button Content="" Tapped="ManageBottles_Tapped" HorizontalAlignment="Center" Margin="900,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
-            <Button.Background>
-                <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Bottle.png"/>
             </Button.Background>
         </Button>
         <Button Content="" Tapped="CleanMachine_Tapped" HorizontalAlignment="Center" Margin="-600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
@@ -194,7 +189,7 @@
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Clean.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="CalibratePumps_Tapped" HorizontalAlignment="Center" Margin="0,520,0,0" VerticalAlignment="Top" Width="128" Height="128">
+        <Button Content="" Tapped="ManagePumps_Tapped" HorizontalAlignment="Center" Margin="0,520,0,0" VerticalAlignment="Top" Width="128" Height="128">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Gauge.png"/>
             </Button.Background>
@@ -204,13 +199,12 @@
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Power.png"/>
             </Button.Background>
         </Button>
-        <TextBlock HorizontalAlignment="Center" Margin="-900,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Add Cocktail"/>
-        <TextBlock HorizontalAlignment="Center" Margin="-300,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Edit Cocktail"/>
-        <TextBlock HorizontalAlignment="Center" Margin="300,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Remove Cocktail"/>
-        <TextBlock HorizontalAlignment="Center" Margin="900,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Manage bottles"/>
+        <TextBlock HorizontalAlignment="Center" Margin="-600,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Add Cocktail"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Edit Cocktail"/>
+        <TextBlock HorizontalAlignment="Center" Margin="600,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Remove Cocktail"/>
 
         <TextBlock HorizontalAlignment="Center" Margin="-600,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Clean machine"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Calibrate pumps"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Manage pumps"/>
         <TextBlock HorizontalAlignment="Center" Margin="600,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Shutdown"/>
     </Grid>
 </Page>

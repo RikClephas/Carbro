@@ -119,19 +119,14 @@ namespace Carbro.Screens
 
         }
 
-        private void ManageBottles_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-
-        }
-
         private void CleanMachine_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            
         }
 
-        private void CalibratePumps_Tapped(object sender, TappedRoutedEventArgs e)
+        private void ManagePumps_Tapped(object sender, TappedRoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(ManagePumps));
         }
 
         private void Shutdown_Tapped(object sender, TappedRoutedEventArgs e)

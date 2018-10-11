@@ -177,24 +177,19 @@
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="AddCocktail_Tapped" HorizontalAlignment="Center" Margin="-900,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
+        <Button Content="" Tapped="AddCocktail_Tapped" HorizontalAlignment="Left" Margin="273,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Cocktail.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="EditCocktail_Tapped" HorizontalAlignment="Center" Margin="-300,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
+        <Button Content="" Tapped="EditCocktail_Tapped" HorizontalAlignment="Left" Margin="573,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Edit.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="300,250,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="873,250,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Trash.png"/>
-            </Button.Background>
-        </Button>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="900,250,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
-            <Button.Background>
-                <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Bottle.png"/>
             </Button.Background>
         </Button>
         <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="-600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" Opacity="0.3">
@@ -212,20 +207,14 @@
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Power.png"/>
             </Button.Background>
         </Button>
-        <TextBlock HorizontalAlignment="Center" Margin="-900,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Add Cocktail"/>
-        <TextBlock HorizontalAlignment="Center" Margin="-300,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Edit Cocktail"/>
-        <TextBlock HorizontalAlignment="Center" Margin="300,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Remove Cocktail" Opacity="0.3"/>
-        <TextBlock HorizontalAlignment="Center" Margin="900,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Manage bottles" Opacity="0.3"/>
+        <TextBlock HorizontalAlignment="Center" Margin="-600,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Add Cocktail"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Edit Cocktail"/>
+        <TextBlock HorizontalAlignment="Center" Margin="600,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Remove Cocktail" Opacity="0.3"/>
 
         <TextBlock HorizontalAlignment="Center" Margin="-600,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Clean machine" Opacity="0.3"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Calibrate pumps" Opacity="0.3"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Manage pumps" Opacity="0.3"/>
         <TextBlock HorizontalAlignment="Center" Margin="600,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Shutdown" Opacity="0.3"/>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="410,330,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
-            <Button.Background>
-                <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
-            </Button.Background>
-        </Button>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="1010,330,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="970,330,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
@@ -243,6 +232,21 @@
         <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="970,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="" Tapped="AddCocktail_Tapped" HorizontalAlignment="Center" Margin="-600,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="4d9be69d-1c60-4712-b794-8ac9c240e0fd"/>
+            </Button.Background>
+        </Button>
+        <Button Content="" Tapped="EditCocktail_Tapped" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Width="128" Height="128">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="a3bd9488-7841-4a96-920c-72a6c8eca9b2"/>
+            </Button.Background>
+        </Button>
+        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="600,250,0,0" VerticalAlignment="Top" Width="125" Height="128" Opacity="0.3">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" ImageSource="eb258d35-4ab8-4672-b59c-aaf4db3d37c4"/>
             </Button.Background>
         </Button>
     </Grid>
