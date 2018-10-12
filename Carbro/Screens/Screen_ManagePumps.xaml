@@ -16,7 +16,33 @@
                 <GradientStop Color="#FF081276" Offset="0.777"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBlock HorizontalAlignment="Center" Margin="0,52,0,0" Text="Manage Pumps" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="80"/>
-        <Button Content="Manual" HorizontalAlignment="Left" Margin="501,206,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B"/>
+        <Grid.Resources>
+            <Style TargetType="RadioButton">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ToggleButton">
+                            
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" Text="Manage Pumps" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="80"/>
+        <Button x:Name="Manual_Button" Content="Manual" Tapped="Manual_Tapped" HorizontalAlignment="Center" Margin="-205,200,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="200"/>
+        <Button x:Name="Calibrate_Button" Content="Calibrate" Tapped="Calibrate_Tapped" HorizontalAlignment="Center" Margin="205,200,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="200"/>
+        <Button Content="1" HorizontalAlignment="Left" Margin="65,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="2" HorizontalAlignment="Left" Margin="265,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="3" HorizontalAlignment="Left" Margin="465,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="4" HorizontalAlignment="Left" Margin="665,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="5" HorizontalAlignment="Left" Margin="865,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="6" HorizontalAlignment="Left" Margin="1065,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="7" HorizontalAlignment="Left" Margin="65,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="8" HorizontalAlignment="Left" Margin="265,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="9" HorizontalAlignment="Left" Margin="465,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="10" HorizontalAlignment="Left" Margin="665,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="11" HorizontalAlignment="Left" Margin="865,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        <Button Content="12" HorizontalAlignment="Left" Margin="1065,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150"/>
+        
+        <RadioButton HorizontalAlignment="Left" Margin="95,200,0,0" VerticalAlignment="Top" Width="200" Height="100" Checked="RadioButton_Checked" Content="Test"/>
     </Grid>
 </Page>
