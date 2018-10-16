@@ -23,24 +23,9 @@ namespace Carbro.Screens
     /// </summary>
     public sealed partial class ManagePumps : Page
     {
-        bool Manual_Toggle = true;
         public ManagePumps()
         {
             this.InitializeComponent();
-        }
-
-        private void Manual_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Manual_Button.Background = new SolidColorBrush(Colors.Green);
-            Calibrate_Button.Background = new SolidColorBrush(Colors.Gray);
-            Manual_Toggle = true;
-        }
-
-        private void Calibrate_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Manual_Button.Background = new SolidColorBrush(Colors.Gray);
-            Calibrate_Button.Background = new SolidColorBrush(Colors.Green);
-            Manual_Toggle = false;
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
