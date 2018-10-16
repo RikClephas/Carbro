@@ -28,9 +28,42 @@ namespace Carbro.Screens
             this.InitializeComponent();
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void ModeRadioButton_Checked(object sender, RoutedEventArgs e)
         {
+            RadioButton rb = sender as RadioButton;
+            if (rb != null)
+            {
+                string buttonName = rb.Content.ToString();
+                switch (buttonName)
+                {
+                    case "Manual":
+                        break;
+                    case "Calibrate":
+                        stop.IsChecked = true;
+                        break;
+                }
+            }
+        }
 
+        private void BottleRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+            if (rb != null)
+            {
+                string buttonName = rb.Name.ToString();
+                switch (buttonName)
+                {
+                    case "stop":
+                        stop.Content="test2";
+                        break;
+                    case "one":
+                        stop.Content = "test";
+                        break;
+                    case "two":
+                        stop.Content = "test23";
+                        break;
+                }
+            }
         }
     }
 }
