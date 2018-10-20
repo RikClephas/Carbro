@@ -47,22 +47,10 @@ namespace Carbro.Screens
             this.Frame.Navigate(typeof(Screen_EditCocktail));
         }
 
-        private void RemoveCocktail_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            
-        }
-
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
         private void ButtonCancel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (PopupAddCocktail.IsOpen) { PopupAddCocktail.IsOpen = false; }
             if (PopupUnlock.IsOpen) { PopupUnlock.IsOpen = false; }
-
         }
 
         private void Add_Tapped(object sender, TappedRoutedEventArgs e)
@@ -94,12 +82,10 @@ namespace Carbro.Screens
 
             jh.WriteListToJson(CocktailList);
             if (PopupAddCocktail.IsOpen) { PopupAddCocktail.IsOpen = false; }
-
         }
 
         private void FillBottleNamesAddCocktail()
         {
-            
             int bottleId = 2000;
             for (int i = 1; i < bottleList.Count+1; i++)
             {
@@ -138,5 +124,4 @@ namespace Carbro.Screens
             }
         }
     }
-
 }
