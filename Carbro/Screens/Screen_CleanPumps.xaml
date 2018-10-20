@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Carbro.Screens.ManagePumps"
+    x:Class="Carbro.Screens.CleanPumps"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Carbro.Screens"
@@ -157,22 +157,30 @@
                 <GradientStop Color="#FF081276" Offset="0.777"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" Text="Manage Pumps" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="80"/>
-        <RadioButton x:Name="stop" Content="Stop" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="65,550,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="Red" BorderBrush="Red" Width="150" IsChecked="True" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="Manual" GroupName="ModeSelect" HorizontalAlignment="Center" Margin="-205,200,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="200" IsChecked="True" Checked="ModeRadioButton_Checked"/>
-        <RadioButton Content="Calibrate" GroupName="ModeSelect" HorizontalAlignment="Center" Margin="205,200,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="200" Checked="ModeRadioButton_Checked"/>
-        <RadioButton Content="1" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="65,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="2" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="265,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="3" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="465,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="4" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="665,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="5" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="865,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="6" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="1065,350,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="7" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="65,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="8" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="265,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="9" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="465,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="10" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="665,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="11" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="865,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
-        <RadioButton Content="12" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="1065,450,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="150" Checked="BottleRadioButton_Checked"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" Text="Clean Pumps" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="80"/>
+        <RadioButton x:Name="LeftPumpsButton" GroupName="CleanSelect" HorizontalAlignment="Center" Margin="-600,200,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="500" Checked="CleanRadioButton_Checked" Height="300">
+            <Grid HorizontalAlignment="Center" Height="280" Margin="0,4,0,0" VerticalAlignment="Top" Width="480">
+                <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" Text="Start left pumps" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="-200,100,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" Text="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="200,100,0,0" Text="3" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="-200,200,0,0" Text="7" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,200,0,0" Text="8" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="200,200,0,0" Text="9" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+            </Grid>
+        </RadioButton>
+        <RadioButton x:Name="RightPumpsButton" GroupName="CleanSelect" HorizontalAlignment="Center" Margin="600,200,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="500" Checked="CleanRadioButton_Checked" Height="300">
+            <Grid HorizontalAlignment="Center" Height="280" Margin="0,4,0,0" VerticalAlignment="Top" Width="480">
+                <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" Text="Start right pumps" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="-200,100,0,0" Text="4" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" Text="5" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="200,100,0,0" Text="6" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="-200,200,0,0" Text="10" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,200,0,0" Text="11" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Center" Margin="200,200,0,0" Text="12" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="36"/>
+            </Grid>
+        </RadioButton>
+        <RadioButton x:Name="stop" Content="Stop" GroupName="CleanSelect" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="Red" BorderBrush="Red" Width="200" IsChecked="True" Checked="CleanRadioButton_Checked" Height="100"/>
 
         <Button Tapped="Back_Tapped" Content="" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>

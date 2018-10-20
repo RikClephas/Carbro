@@ -23,32 +23,14 @@ namespace Carbro.Screens
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ManagePumps : Page
+    public sealed partial class CleanPumps : Page
     {
 
         JsonHelper jh = new JsonHelper();
 
-        public ManagePumps()
+        public CleanPumps()
         {
             this.InitializeComponent();
-        }
-
-        private void ModeRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            RadioButton rb = sender as RadioButton;
-            if (rb != null)
-            {
-                string buttonName = rb.Content.ToString();
-                switch (buttonName)
-                {
-                    case "Manual":
-                        if (stop.IsChecked == false) { stop.IsChecked = true; }
-                        break;
-                    case "Calibrate":
-                        if (stop.IsChecked == false) { stop.IsChecked = true; }
-                        break;
-                }
-            }
         }
 
         private void Back_Tapped(object sender, TappedRoutedEventArgs e)
@@ -56,7 +38,7 @@ namespace Carbro.Screens
             this.Frame.Navigate(typeof(UnlockedSettings));
         }
 
-        private void BottleRadioButton_Checked(object sender, RoutedEventArgs e)
+        private void CleanRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rb = sender as RadioButton;
             if (rb != null)
@@ -101,45 +83,25 @@ namespace Carbro.Screens
                     pin12.SetDriveMode(GpioPinDriveMode.Output);
                     pin12.Write(GpioPinValue.Low);
 
-                    string buttonName = rb.Content.ToString().ToLower();
+                    string buttonName = rb.Name.ToLower();
                     switch (buttonName)
                     {
                         case "stop":
                             break;
-                        case "1":
+                        case "leftpumpsbutton":
                             pin1.Write(GpioPinValue.High);
-                            break;
-                        case "2":
                             pin2.Write(GpioPinValue.High);
-                            break;
-                        case "3":
                             pin3.Write(GpioPinValue.High);
-                            break;
-                        case "4":
-                            pin4.Write(GpioPinValue.High);
-                            break;
-                        case "5":
-                            pin5.Write(GpioPinValue.High);
-                            break;
-                        case "6":
-                            pin6.Write(GpioPinValue.High);
-                            break;
-                        case "7":
                             pin7.Write(GpioPinValue.High);
-                            break;
-                        case "8":
                             pin8.Write(GpioPinValue.High);
-                            break;
-                        case "9":
                             pin9.Write(GpioPinValue.High);
                             break;
-                        case "10":
+                        case "rightpumpsbutton":
+                            pin4.Write(GpioPinValue.High);
+                            pin5.Write(GpioPinValue.High);
+                            pin6.Write(GpioPinValue.High);
                             pin10.Write(GpioPinValue.High);
-                            break;
-                        case "11":
                             pin11.Write(GpioPinValue.High);
-                            break;
-                        case "12":
                             pin12.Write(GpioPinValue.High);
                             break;
                         default:
@@ -161,15 +123,6 @@ namespace Carbro.Screens
                     pin12.Dispose();
                 }
             }
-        }
-
-        private void InitGPIO(int bottlenumber)
-        {
-            Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-
-            Int32 StopTime;
-
-            StopTime = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
         }
     }
 }

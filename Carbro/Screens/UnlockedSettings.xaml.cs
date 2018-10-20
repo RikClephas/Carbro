@@ -52,12 +52,6 @@ namespace Carbro.Screens
             this.Frame.Navigate(typeof(Screen_RemoveCocktail));
         }
 
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
         private void ButtonCancel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (PopupAddCocktail.IsOpen) { PopupAddCocktail.IsOpen = false; }
@@ -121,7 +115,7 @@ namespace Carbro.Screens
 
         private void CleanMachine_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            
+            this.Frame.Navigate(typeof(CleanPumps));
         }
 
         private void ManagePumps_Tapped(object sender, TappedRoutedEventArgs e)
