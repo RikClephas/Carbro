@@ -28,13 +28,25 @@ namespace Carbro.Screens
 
         JsonHelper jh = new JsonHelper();
 
+        private int[] _pinNumbers = new[] { 9, 23, 12, 22, 27, 16, 20, 21, 6, 13, 19, 26 };
+        private GpioPin[] _pins = new GpioPin[12];
+        bool IOinitialized = false;
+
         public CleanPumps()
         {
+            IOinitialized = InitGPIO();
             this.InitializeComponent();
         }
 
         private void Back_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            if (IOinitialized)
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    _pins[i].Dispose();
+                }
+            }
             this.Frame.Navigate(typeof(UnlockedSettings));
         }
 
@@ -43,86 +55,62 @@ namespace Carbro.Screens
             RadioButton rb = sender as RadioButton;
             if (rb != null)
             {
-                var gpio = GpioController.GetDefault();
-                if (gpio != null)
+                if (IOinitialized)
                 {
-                    GpioPin pin1 = gpio.OpenPin(9);
-                    pin1.SetDriveMode(GpioPinDriveMode.Output);
-                    pin1.Write(GpioPinValue.Low);
-                    GpioPin pin2 = gpio.OpenPin(23);
-                    pin2.SetDriveMode(GpioPinDriveMode.Output);
-                    pin2.Write(GpioPinValue.Low);
-                    GpioPin pin3 = gpio.OpenPin(12);
-                    pin3.SetDriveMode(GpioPinDriveMode.Output);
-                    pin3.Write(GpioPinValue.Low);
-                    GpioPin pin4 = gpio.OpenPin(22);
-                    pin4.SetDriveMode(GpioPinDriveMode.Output);
-                    pin4.Write(GpioPinValue.Low);
-                    GpioPin pin5 = gpio.OpenPin(27);
-                    pin5.SetDriveMode(GpioPinDriveMode.Output);
-                    pin5.Write(GpioPinValue.Low);
-                    GpioPin pin6 = gpio.OpenPin(16);
-                    pin6.SetDriveMode(GpioPinDriveMode.Output);
-                    pin6.Write(GpioPinValue.Low);
-                    GpioPin pin7 = gpio.OpenPin(20);
-                    pin7.SetDriveMode(GpioPinDriveMode.Output);
-                    pin7.Write(GpioPinValue.Low);
-                    GpioPin pin8 = gpio.OpenPin(21);
-                    pin8.SetDriveMode(GpioPinDriveMode.Output);
-                    pin8.Write(GpioPinValue.Low);
-                    GpioPin pin9 = gpio.OpenPin(6);
-                    pin9.SetDriveMode(GpioPinDriveMode.Output);
-                    pin9.Write(GpioPinValue.Low);
-                    GpioPin pin10 = gpio.OpenPin(13);
-                    pin10.SetDriveMode(GpioPinDriveMode.Output);
-                    pin10.Write(GpioPinValue.Low);
-                    GpioPin pin11 = gpio.OpenPin(19);
-                    pin11.SetDriveMode(GpioPinDriveMode.Output);
-                    pin11.Write(GpioPinValue.Low);
-                    GpioPin pin12 = gpio.OpenPin(26);
-                    pin12.SetDriveMode(GpioPinDriveMode.Output);
-                    pin12.Write(GpioPinValue.Low);
-
+                    for (int i = 0; i < 12; i++)
+                    {
+                        _pins[i].Write(GpioPinValue.Low);
+                    }
                     string buttonName = rb.Name.ToLower();
                     switch (buttonName)
                     {
                         case "stop":
                             break;
                         case "leftpumpsbutton":
-                            pin1.Write(GpioPinValue.High);
-                            pin2.Write(GpioPinValue.High);
-                            pin3.Write(GpioPinValue.High);
-                            pin7.Write(GpioPinValue.High);
-                            pin8.Write(GpioPinValue.High);
-                            pin9.Write(GpioPinValue.High);
+                            _pins[0].Write(GpioPinValue.High);
+                            _pins[1].Write(GpioPinValue.High);
+                            _pins[2].Write(GpioPinValue.High);
+                            _pins[6].Write(GpioPinValue.High);
+                            _pins[7].Write(GpioPinValue.High);
+                            _pins[8].Write(GpioPinValue.High);
                             break;
                         case "rightpumpsbutton":
-                            pin4.Write(GpioPinValue.High);
-                            pin5.Write(GpioPinValue.High);
-                            pin6.Write(GpioPinValue.High);
-                            pin10.Write(GpioPinValue.High);
-                            pin11.Write(GpioPinValue.High);
-                            pin12.Write(GpioPinValue.High);
+                            _pins[3].Write(GpioPinValue.High);
+                            _pins[4].Write(GpioPinValue.High);
+                            _pins[5].Write(GpioPinValue.High);
+                            _pins[9].Write(GpioPinValue.High);
+                            _pins[10].Write(GpioPinValue.High);
+                            _pins[11].Write(GpioPinValue.High);
                             break;
                         default:
                             stop.IsChecked = true;
                             break;
                     }
-
-                    pin1.Dispose();
-                    pin2.Dispose();
-                    pin3.Dispose();
-                    pin4.Dispose();
-                    pin5.Dispose();
-                    pin6.Dispose();
-                    pin7.Dispose();
-                    pin8.Dispose();
-                    pin9.Dispose();
-                    pin10.Dispose();
-                    pin11.Dispose();
-                    pin12.Dispose();
                 }
             }
+        }
+
+        private bool InitGPIO()
+        {
+            var gpio = GpioController.GetDefault();
+            if (gpio == null)
+            {
+                return false;
+            }
+            for (int i = 0; i < 12; i++)
+            {
+                _pins[i] = gpio.OpenPin(_pinNumbers[i]);
+                _pins[i].SetDriveMode(GpioPinDriveMode.Output);
+                _pins[i].Write(GpioPinValue.Low);
+            }
+            return true;
+            /*
+            Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+
+            Int32 StopTime;
+
+            StopTime = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            */
         }
     }
 }
