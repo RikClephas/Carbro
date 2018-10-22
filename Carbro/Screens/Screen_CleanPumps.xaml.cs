@@ -100,8 +100,8 @@ namespace Carbro.Screens
             for (int i = 0; i < 12; i++)
             {
                 _pins[i] = gpio.OpenPin(_pinNumbers[i]);
-                _pins[i].SetDriveMode(GpioPinDriveMode.Output);
                 _pins[i].Write(GpioPinValue.Low);
+                _pins[i].SetDriveMode(GpioPinDriveMode.Output);
             }
             return true;
             /*
