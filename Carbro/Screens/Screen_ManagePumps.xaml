@@ -179,5 +179,11 @@
                 <ImageBrush ImageSource="/Assets/Icons/Icon_Left.png"/>
             </Button.Background>
         </Button>
+        <Grid x:Name="TimeGrid" HorizontalAlignment="Left" Margin="915,550,0,0" VerticalAlignment="Top" Width="300" Visibility="Collapsed">
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Old value:" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged" Width="180" FontFamily="Hobo Std" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="200,10,0,0" Text="Null" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontFamily="Hobo Std" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,50,0,0" Text="New value:" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontFamily="Hobo Std" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="200,50,0,0" Text="Null" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontFamily="Hobo Std" FontSize="36"/>
+        </Grid>
     </Grid>
 </Page>

@@ -47,9 +47,11 @@ namespace Carbro.Screens
                 switch (buttonName)
                 {
                     case "Manual":
+                        TimeGrid.Visibility = Visibility.Collapsed;
                         if (stop.IsChecked == false) { stop.IsChecked = true; }
                         break;
                     case "Calibrate":
+                        TimeGrid.Visibility = Visibility.Visible;
                         if (stop.IsChecked == false) { stop.IsChecked = true; }
                         break;
                 }
@@ -71,6 +73,8 @@ namespace Carbro.Screens
         private void BottleRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rb = sender as RadioButton;
+            List<Bottles> bottles = jh.ReadBottlesJsonToList();
+            Bottles bottle;
             if (rb != null)
             {
                 if (IOinitialized)
@@ -86,6 +90,7 @@ namespace Carbro.Screens
                             break;
                         case "1":
                             _pins[0].Write(GpioPinValue.High);
+                            bottle = bottles.Find(x => x.BottleNumber == 1);
                             break;
                         case "2":
                             _pins[1].Write(GpioPinValue.High);
@@ -142,6 +147,10 @@ namespace Carbro.Screens
                 _pins[i].SetDriveMode(GpioPinDriveMode.Output);
             }
             return true;
+        }
+
+        private int timer()
+        {
             /*
             Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
 
@@ -149,6 +158,7 @@ namespace Carbro.Screens
 
             StopTime = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
             */
+            return 0;
         }
     }
 }
