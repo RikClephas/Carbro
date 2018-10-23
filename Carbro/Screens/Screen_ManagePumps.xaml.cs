@@ -81,28 +81,32 @@ namespace Carbro.Screens
             int buttonNumber = 0;
             if (rb != null)
             {
-                if (IOinitialized)
+                for (int i = 0; i < 12; i++)
                 {
-                    for (int i = 0; i < 12; i++)
+                    if (IOinitialized)
                     {
                         _pins[i].Write(GpioPinValue.Low);
                     }
-                    string buttonName = rb.Content.ToString().ToLower();
-                    if(buttonName == "stop")
+                }
+                string buttonName = rb.Content.ToString().ToLower();
+                if(buttonName == "stop")
+                {
+                    StopTime = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                    newValue.Text = ((int)((StopTime - unixTimestamp)*10)).ToString();
+                    saveButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    if(Int32.TryParse(buttonName, out buttonNumber))
                     {
-                        StopTime = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-                        newValue.Text = ((int)((StopTime - unixTimestamp)*10)).ToString();
-                    }
-                    else
-                    {
-                        if(Int32.TryParse(buttonName, out buttonNumber))
+                        if (IOinitialized)
                         {
                             _pins[buttonNumber - 1].Write(GpioPinValue.High);
-                            unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-                            bottle = bottles.Find(x => x.BottleNumber == buttonNumber);
-                            oldValue.Text = bottle.Calibration.ToString();
-                            newValue.Text = "0";
                         }
+                        unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                        bottle = bottles.Find(x => x.BottleNumber == buttonNumber);
+                        oldValue.Text = bottle.Calibration.ToString();
+                        newValue.Text = "0";
                     }
                 }
             }
@@ -133,8 +137,10 @@ namespace Carbro.Screens
                 {
                     bottles.Find(x => x.BottleNumber == bottle.BottleNumber).Calibration = newCalibration;
                     jh.WriteDrinksListToJson(bottles);
+                    oldValue.Text = newValue.Text;
                     bottle = null;
                     bottles = null;
+                    saveButton.Visibility = Visibility.Collapsed;
                 }
             }
         }
