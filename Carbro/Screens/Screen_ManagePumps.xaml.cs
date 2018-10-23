@@ -30,6 +30,10 @@ namespace Carbro.Screens
 
         private int[] _pinNumbers = new[] { 9, 23, 12, 22, 27, 16, 20, 21, 6, 13, 19, 26 };
         private GpioPin[] _pins = new GpioPin[12];
+        double unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+        double StopTime;
+        List<Bottles> bottles = null;
+        private Bottles bottle = null;
         bool IOinitialized = false;
 
         public ManagePumps()
@@ -73,61 +77,32 @@ namespace Carbro.Screens
         private void BottleRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rb = sender as RadioButton;
-            List<Bottles> bottles = jh.ReadBottlesJsonToList();
-            Bottles bottle;
+            bottles = jh.ReadBottlesJsonToList();
+            int buttonNumber = 0;
             if (rb != null)
             {
-                if (IOinitialized)
+                if (true/*IOinitialized*/)
                 {
                     for (int i = 0; i < 12; i++)
                     {
-                        _pins[i].Write(GpioPinValue.Low);
+                        //_pins[i].Write(GpioPinValue.Low);
                     }
                     string buttonName = rb.Content.ToString().ToLower();
-                    switch (buttonName)
+                    if(buttonName == "stop")
                     {
-                        case "stop":
-                            break;
-                        case "1":
-                            _pins[0].Write(GpioPinValue.High);
-                            bottle = bottles.Find(x => x.BottleNumber == 1);
-                            break;
-                        case "2":
-                            _pins[1].Write(GpioPinValue.High);
-                            break;
-                        case "3":
-                            _pins[2].Write(GpioPinValue.High);
-                            break;
-                        case "4":
-                            _pins[3].Write(GpioPinValue.High);
-                            break;
-                        case "5":
-                            _pins[4].Write(GpioPinValue.High);
-                            break;
-                        case "6":
-                            _pins[5].Write(GpioPinValue.High);
-                            break;
-                        case "7":
-                            _pins[6].Write(GpioPinValue.High);
-                            break;
-                        case "8":
-                            _pins[7].Write(GpioPinValue.High);
-                            break;
-                        case "9":
-                            _pins[8].Write(GpioPinValue.High);
-                            break;
-                        case "10":
-                            _pins[9].Write(GpioPinValue.High);
-                            break;
-                        case "11":
-                            _pins[10].Write(GpioPinValue.High);
-                            break;
-                        case "12":
-                            _pins[11].Write(GpioPinValue.High);
-                            break;
-                        default:
-                            stop.IsChecked = true;
-                            break;
+                        StopTime = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                        newValue.Text = ((int)((StopTime - unixTimestamp)*10)).ToString();
+                    }
+                    else
+                    {
+                        if(Int32.TryParse(buttonName, out buttonNumber))
+                        {
+                            //_pins[buttonNumber - 1].Write(GpioPinValue.High);
+                            unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                            bottle = bottles.Find(x => x.BottleNumber == buttonNumber);
+                            oldValue.Text = bottle.Calibration.ToString();
+                            newValue.Text = "0";
+                        }
                     }
                 }
             }
@@ -149,16 +124,19 @@ namespace Carbro.Screens
             return true;
         }
 
-        private int timer()
+        private void Save_Tapped(object sender, RoutedEventArgs e)
         {
-            /*
-            Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-
-            Int32 StopTime;
-
-            StopTime = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-            */
-            return 0;
+            int newCalibration = 0;
+            if(Int32.TryParse(newValue.Text, out newCalibration))
+            {
+                if(bottle != null && bottles != null)
+                {
+                    bottles.Find(x => x.BottleNumber == bottle.BottleNumber).Calibration = newCalibration;
+                    jh.WriteDrinksListToJson(bottles);
+                    bottle = null;
+                    bottles = null;
+                }
+            }
         }
     }
 }

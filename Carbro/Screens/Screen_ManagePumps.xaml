@@ -158,6 +158,13 @@
             </LinearGradientBrush>
         </Grid.Background>
         <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" Text="Manage Pumps" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="80"/>
+        <Grid x:Name="TimeGrid" HorizontalAlignment="Left" Margin="915,550,0,0" VerticalAlignment="Top" Width="300" Visibility="Visible" Height="151">
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Old value:" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontFamily="Hobo Std" FontSize="36"/>
+            <TextBlock x:Name="oldValue" HorizontalAlignment="Left" Margin="200,10,0,0" Text="Null" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontFamily="Hobo Std" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,50,0,0" Text="New value:" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontFamily="Hobo Std" FontSize="36"/>
+            <TextBlock x:Name="newValue" HorizontalAlignment="Left" Margin="200,50,0,0" Text="Null" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontFamily="Hobo Std" FontSize="36"/>
+            <Button Content="Save" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="150" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Tapped="Save_Tapped"/>
+        </Grid>
         <RadioButton x:Name="stop" Content="Stop" GroupName="BottleSelect" HorizontalAlignment="Left" Margin="65,550,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="Red" BorderBrush="Red" Width="150" IsChecked="True" Checked="BottleRadioButton_Checked"/>
         <RadioButton Content="Manual" GroupName="ModeSelect" HorizontalAlignment="Center" Margin="-205,200,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="200" IsChecked="True" Checked="ModeRadioButton_Checked"/>
         <RadioButton Content="Calibrate" GroupName="ModeSelect" HorizontalAlignment="Center" Margin="205,200,0,0" VerticalAlignment="Top" FontFamily="Hobo Std" FontSize="36" Background="#FF8B8B8B" BorderBrush="#FF8B8B8B" Width="200" Checked="ModeRadioButton_Checked"/>
@@ -179,11 +186,5 @@
                 <ImageBrush ImageSource="/Assets/Icons/Icon_Left.png"/>
             </Button.Background>
         </Button>
-        <Grid x:Name="TimeGrid" HorizontalAlignment="Left" Margin="915,550,0,0" VerticalAlignment="Top" Width="300" Visibility="Collapsed">
-            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Old value:" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged" Width="180" FontFamily="Hobo Std" FontSize="36"/>
-            <TextBlock HorizontalAlignment="Left" Margin="200,10,0,0" Text="Null" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontFamily="Hobo Std" FontSize="36"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,50,0,0" Text="New value:" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontFamily="Hobo Std" FontSize="36"/>
-            <TextBlock HorizontalAlignment="Left" Margin="200,50,0,0" Text="Null" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontFamily="Hobo Std" FontSize="36"/>
-        </Grid>
     </Grid>
 </Page>

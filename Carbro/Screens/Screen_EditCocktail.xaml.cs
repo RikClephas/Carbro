@@ -29,8 +29,6 @@ namespace Carbro.Screens
     /// </summary>
     public sealed partial class Screen_EditCocktail : Page
     {
-        bool emulation = true;
-
         List<Cocktails> cocktaillist;
         List<Bottles> bottleList;
         JsonHelper jh = new JsonHelper();
