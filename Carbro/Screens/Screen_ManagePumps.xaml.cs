@@ -81,11 +81,11 @@ namespace Carbro.Screens
             int buttonNumber = 0;
             if (rb != null)
             {
-                if (true/*IOinitialized*/)
+                if (IOinitialized)
                 {
                     for (int i = 0; i < 12; i++)
                     {
-                        //_pins[i].Write(GpioPinValue.Low);
+                        _pins[i].Write(GpioPinValue.Low);
                     }
                     string buttonName = rb.Content.ToString().ToLower();
                     if(buttonName == "stop")
@@ -97,7 +97,7 @@ namespace Carbro.Screens
                     {
                         if(Int32.TryParse(buttonName, out buttonNumber))
                         {
-                            //_pins[buttonNumber - 1].Write(GpioPinValue.High);
+                            _pins[buttonNumber - 1].Write(GpioPinValue.High);
                             unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
                             bottle = bottles.Find(x => x.BottleNumber == buttonNumber);
                             oldValue.Text = bottle.Calibration.ToString();
