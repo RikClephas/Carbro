@@ -121,7 +121,7 @@ namespace Carbro.Screens
             }
             for (int i = 0; i < 12; i++)
             {
-                _pins[i] = gpio.OpenPin(bottles.Find(x => x.BottleNumber == i).BottlePin);
+                _pins[i] = gpio.OpenPin(bottles.Find(x => x.BottleNumber == i+1).BottlePin);
                 _pins[i].Write(GpioPinValue.Low);
                 _pins[i].SetDriveMode(GpioPinDriveMode.Output);
             }
