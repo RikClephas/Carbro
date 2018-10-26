@@ -27,8 +27,7 @@ namespace Carbro.Screens
     {
 
         JsonHelper jh = new JsonHelper();
-
-        private int[] _pinNumbers = new[] { 9, 23, 12, 22, 27, 16, 20, 21, 6, 13, 19, 26 };
+        
         private GpioPin[] _pins = new GpioPin[12];
         bool IOinitialized = false;
 
@@ -93,13 +92,14 @@ namespace Carbro.Screens
         private bool InitGPIO()
         {
             var gpio = GpioController.GetDefault();
+            List<Bottles> bottles = jh.ReadBottlesJsonToList();
             if (gpio == null)
             {
                 return false;
             }
             for (int i = 0; i < 12; i++)
             {
-                _pins[i] = gpio.OpenPin(_pinNumbers[i]);
+                _pins[i] = gpio.OpenPin(bottles.Find(x => x.BottleNumber == i).BottlePin);
                 _pins[i].Write(GpioPinValue.Low);
                 _pins[i].SetDriveMode(GpioPinDriveMode.Output);
             }
