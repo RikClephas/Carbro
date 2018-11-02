@@ -55,7 +55,11 @@ namespace Carbro.Screens
         private void ButtonCancel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (PopupAddCocktail.IsOpen) { PopupAddCocktail.IsOpen = false; }
-            if (PopupShutdown.IsOpen) { PopupShutdown.IsOpen = false; }
+            if (PopupShutdown.IsOpen)
+            {
+                PopupShutdown.IsOpen = false;
+                Windows.System.ShutdownManager.CancelShutdown();
+            }
 
         }
 
@@ -125,7 +129,7 @@ namespace Carbro.Screens
 
         private void ShutdownButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Application.Current.Exit();
+            Windows.System.ShutdownManager.BeginShutdown(Windows.System.ShutdownKind.Shutdown, TimeSpan.FromSeconds(10));
         }
     }
 }

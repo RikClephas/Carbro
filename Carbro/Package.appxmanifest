@@ -25,6 +25,7 @@
   <Capabilities>
     <Capability Name="internetClient" />
     <iot:Capability Name="lowLevelDevices" />
+    <iot:Capability Name="systemManagement" />
     <DeviceCapability Name="lowLevel" />
   </Capabilities>
 </Package>
