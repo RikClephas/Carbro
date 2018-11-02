@@ -192,17 +192,17 @@
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Trash.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="-600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" Opacity="0.3">
+        <Button x:Name="cleanMachineButton" Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="-600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" Opacity="0.3">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Clean.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="0,520,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
+        <Button x:Name="managePumpsButton" Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="0,520,0,0" VerticalAlignment="Top" Width="128" Height="128" Opacity="0.3">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Gauge.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" Opacity="0.3">
+        <Button x:Name="shutdownButton" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="600,520,0,0" VerticalAlignment="Top" Width="128" Height="128" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" Opacity="0.3">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icons/Icon_Power.png"/>
             </Button.Background>
@@ -214,22 +214,22 @@
         <TextBlock HorizontalAlignment="Center" Margin="-600,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Clean machine" Opacity="0.3"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Manage pumps" Opacity="0.3"/>
         <TextBlock HorizontalAlignment="Center" Margin="600,670,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std" FontSize="30" Foreground="White" Text="Shutdown" Opacity="0.3"/>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="970,330,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button x:Name="removeCocktailLock" Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="970,330,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="370,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button x:Name="CleanMachineLock" Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="370,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="110,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button x:Name="managePumpsLock" Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="110,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="970,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button x:Name="shutdownLock" Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="970,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
@@ -244,7 +244,7 @@
                 <ImageBrush Stretch="Uniform" ImageSource="a3bd9488-7841-4a96-920c-72a6c8eca9b2"/>
             </Button.Background>
         </Button>
-        <Button Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="600,250,0,0" VerticalAlignment="Top" Width="125" Height="128" Opacity="0.3">
+        <Button x:Name="removeCocktailButton" Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Center" Margin="600,250,0,0" VerticalAlignment="Top" Width="125" Height="128" Opacity="0.3">
             <Button.Background>
                 <ImageBrush Stretch="Uniform" ImageSource="eb258d35-4ab8-4672-b59c-aaf4db3d37c4"/>
             </Button.Background>

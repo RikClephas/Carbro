@@ -93,16 +93,12 @@ namespace Carbro.Screens
 
         private void FillBottleNamesAddCocktail()
         {
-            
             int bottleId = 2000;
             for (int i = 1; i < bottleList.Count+1; i++)
             {
                 string bottlenumber = "Bottle" + i.ToString();
                 bottleId++;
-                
-
-                   ((TextBlock)this.FindName(bottlenumber)).Text = bottleList.Find(x => x.ID == (bottleId)).Name;
-                
+                ((TextBlock)this.FindName(bottlenumber)).Text = bottleList.Find(x => x.ID == (bottleId)).Name;
             }
 
         }
@@ -110,7 +106,6 @@ namespace Carbro.Screens
         private void SettingsBack_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Settings));
-
         }
 
         private void CleanMachine_Tapped(object sender, TappedRoutedEventArgs e)

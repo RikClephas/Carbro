@@ -28,6 +28,7 @@ namespace Carbro.Screens
     {
         JsonHelper jh = new JsonHelper();
         List<Bottles> bottleList = new List<Bottles>();
+        string unlockCaller = "";
         
         public Settings()
         {
@@ -51,6 +52,7 @@ namespace Carbro.Screens
         {
             if (PopupAddCocktail.IsOpen) { PopupAddCocktail.IsOpen = false; }
             if (PopupUnlock.IsOpen) { PopupUnlock.IsOpen = false; }
+            unlockCaller = "";
         }
 
         private void Add_Tapped(object sender, TappedRoutedEventArgs e)
@@ -106,6 +108,7 @@ namespace Carbro.Screens
             if (!PopupUnlock.IsOpen) { PopupUnlock.IsOpen = true; }
             UnlockCodeField.Focus(FocusState.Pointer);
             UnlockCodeField.SelectAll();
+            unlockCaller = ((Button)sender).Name.ToString();
         }
 
         private void Unlock_Button_Tapped(object sender, TappedRoutedEventArgs e)
@@ -114,7 +117,36 @@ namespace Carbro.Screens
             {
                 UnlockCodeField.Text = "";
                 if (PopupUnlock.IsOpen) { PopupUnlock.IsOpen = false; }
-                this.Frame.Navigate(typeof(UnlockedSettings));
+                switch(unlockCaller)
+                {
+                    case "removeCocktailLock":
+                        this.Frame.Navigate(typeof(Screen_RemoveCocktail));
+                        break;
+                    case "removeCocktailButton":
+                        this.Frame.Navigate(typeof(Screen_RemoveCocktail));
+                        break;
+                    case "managePumpsLock":
+                        this.Frame.Navigate(typeof(ManagePumps));
+                        break;
+                    case "managePumpsButton":
+                        this.Frame.Navigate(typeof(ManagePumps));
+                        break;
+                    case "cleanMachineLock":
+                        this.Frame.Navigate(typeof(CleanPumps));
+                        break;
+                    case "cleanMachineButton":
+                        this.Frame.Navigate(typeof(CleanPumps));
+                        break;
+                    case "shutdownLock":
+                        this.Frame.Navigate(typeof(UnlockedSettings));
+                        break;
+                    case "shutdownButton":
+                        this.Frame.Navigate(typeof(UnlockedSettings));
+                        break;
+                    default:
+                        this.Frame.Navigate(typeof(UnlockedSettings));
+                        break;
+                }
             }
             else
             {
