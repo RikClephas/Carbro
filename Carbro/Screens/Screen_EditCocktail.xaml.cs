@@ -29,24 +29,22 @@ namespace Carbro.Screens
     /// </summary>
     public sealed partial class Screen_EditCocktail : Page
     {
-        List<Cocktails> cocktaillist;
-        List<Bottles> bottleList;
+        List<Cocktail> cocktaillist;
+        List<Bottle> bottleList;
         JsonHelper jh = new JsonHelper();
         string CocktailName = "";
 
         public Screen_EditCocktail()
         {
-            
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
             ApplicationView.PreferredLaunchViewSize = new Size(1280, 800);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             this.InitializeComponent();
-            cocktaillist = new List<Cocktails>();
+            cocktaillist = new List<Cocktail>();
             cocktaillist = jh.ReadCocktailsJsonToList();
-            bottleList = new List<Bottles>();
+            bottleList = new List<Bottle>();
             bottleList = jh.ReadBottlesJsonToList();
             addCocktails();
-            
         }
 
         public void addCocktails()
@@ -73,30 +71,39 @@ namespace Carbro.Screens
             GeneratePopup(((Button)sender).Content.ToString());
             CocktailName = ((Button)sender).Content.ToString();
             // open the Popup if it isn't open already 
-            if (!PopupEditCocktail.IsOpen) { PopupEditCocktail.IsOpen = true; }
+            if (!PopupEditCocktail.IsOpen)
+            {
+                PopupEditCocktail.IsOpen = true;
+            }
         }
 
         private void ButtonStop_Tapped(object sender, RoutedEventArgs e)
         {
             // if the Popup is open, then close it 
-            if (PopupEditCocktail.IsOpen) { PopupEditCocktail.IsOpen = false; }
+            if (PopupEditCocktail.IsOpen)
+            {
+                PopupEditCocktail.IsOpen = false;
+            }
         }
 
         private void ButtonCancel_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (PopupEditCocktail.IsOpen) { PopupEditCocktail.IsOpen = false; }
+            if (PopupEditCocktail.IsOpen)
+            {
+                PopupEditCocktail.IsOpen = false;
+            }
         }
 
         public void GeneratePopup(string cocktailName)
         {
-            Cocktails c = cocktaillist.Find(x => x.Name == cocktailName);
+            Cocktail c = cocktaillist.Find(x => x.Name == cocktailName);
             EditCocktailNameField.Text = c.Name;
             FillBottleNamesEditCocktail(c);
         }
 
         private void Edit_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Cocktails c = cocktaillist.Find(x => x.Name == CocktailName);
+            Cocktail c = cocktaillist.Find(x => x.Name == CocktailName);
             c.Name = EditCocktailNameField.Text;
             List<KeyValuePair<string, int>> listkvpBottles = new List<KeyValuePair<string, int>>();
 
@@ -112,19 +119,12 @@ namespace Carbro.Screens
                         KeyValuePair<string, int> kvpbottle = new KeyValuePair<string, int>(bottleList.Find(x => x.ID == (bottleId)).Name, Int32.Parse(((TextBox)this.FindName(bottlenumber)).Text));
                         listkvpBottles.Add(kvpbottle);
                     }
-
                 }
-
             }
             c.Liquids = listkvpBottles;
             jh.WriteListToJson(cocktaillist);
             if (PopupEditCocktail.IsOpen) { PopupEditCocktail.IsOpen = false; }
             addCocktails();
-        }
-        
-        private void Button_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-
         }
 
         private void Settings_Tapped(object sender, TappedRoutedEventArgs e)
@@ -137,7 +137,7 @@ namespace Carbro.Screens
             this.Frame.Navigate(typeof(Settings));
         }
 
-        private void FillBottleNamesEditCocktail(Cocktails c)
+        private void FillBottleNamesEditCocktail(Cocktail c)
         {
             int bottleId = 2000;
             string bottlenumber;

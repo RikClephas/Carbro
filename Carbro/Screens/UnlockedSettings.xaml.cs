@@ -27,7 +27,7 @@ namespace Carbro.Screens
     public sealed partial class UnlockedSettings : Page
     {
         JsonHelper jh = new JsonHelper();
-        List<Bottles> bottleList = new List<Bottles>();
+        List<Bottle> bottleList = new List<Bottle>();
         
         public UnlockedSettings()
         {
@@ -60,14 +60,13 @@ namespace Carbro.Screens
                 PopupShutdown.IsOpen = false;
                 Windows.System.ShutdownManager.CancelShutdown();
             }
-
         }
 
         private void Add_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            List<Cocktails> CocktailList = new List<Cocktails>();
+            List<Cocktail> CocktailList = new List<Cocktail>();
             CocktailList = jh.ReadCocktailsJsonToList();
-            Cocktails c = new Cocktails();
+            Cocktail c = new Cocktail();
             c.Name = AddCocktailNameField.Text;
             List<KeyValuePair<string, int>> listkvpBottles = new List<KeyValuePair<string, int>>();
 
@@ -91,8 +90,10 @@ namespace Carbro.Screens
             CocktailList.Add(c);
 
             jh.WriteListToJson(CocktailList);
-            if (PopupAddCocktail.IsOpen) { PopupAddCocktail.IsOpen = false; }
-
+            if (PopupAddCocktail.IsOpen)
+            {
+                PopupAddCocktail.IsOpen = false;
+            }
         }
 
         private void FillBottleNamesAddCocktail()
@@ -104,7 +105,6 @@ namespace Carbro.Screens
                 bottleId++;
                 ((TextBlock)this.FindName(bottlenumber)).Text = bottleList.Find(x => x.ID == (bottleId)).Name;
             }
-
         }
 
         private void SettingsBack_Tapped(object sender, TappedRoutedEventArgs e)

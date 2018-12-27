@@ -92,7 +92,7 @@ namespace Carbro.Screens
         private bool InitGPIO()
         {
             var gpio = GpioController.GetDefault();
-            List<Bottles> bottles = jh.ReadBottlesJsonToList();
+            List<Bottle> bottles = jh.ReadBottlesJsonToList();
             if (gpio == null)
             {
                 return false;

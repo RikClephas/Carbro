@@ -1,0 +1,518 @@
+[
+  {
+    "Name": "Alles of Barry",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 12
+      },
+      {
+        "Key": "Peach Schnaps",
+        "Value": 12
+      },
+      {
+        "Key": "Apple Cider",
+        "Value": 12
+      },
+      {
+        "Key": "Bacardi",
+        "Value": 12
+      },
+      {
+        "Key": "Blue Curacao",
+        "Value": 12
+      },
+      {
+        "Key": "Malibu",
+        "Value": 12
+      },
+      {
+        "Key": "Liqor 43",
+        "Value": 12
+      },
+      {
+        "Key": "Jagermeister",
+        "Value": 12
+      }
+    ]
+  },
+  {
+    "Name": "Apple Bomb",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 35
+      },
+      {
+        "Key": "Apple Cider",
+        "Value": 15
+      },
+      {
+        "Key": "Red Bull",
+        "Value": 50
+      }
+    ]
+  },
+  {
+    "Name": "Bay Breeze",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 40
+      },
+      {
+        "Key": "Cranberry Juice",
+        "Value": 30
+      },
+      {
+        "Key": "Pineapple Juice",
+        "Value": 30
+      }
+    ]
+  },
+  {
+    "Name": "Belly",
+    "Liquids": [
+      {
+        "Key": "Peach Schnaps",
+        "Value": 10
+      },
+      {
+        "Key": "Bacardi",
+        "Value": 10
+      },
+      {
+        "Key": "Orange Juice",
+        "Value": 70
+      },
+      {
+        "Key": "Malibu",
+        "Value": 10
+      }
+    ]
+  },
+  {
+    "Name": "Carolina Blue Whale",
+    "Liquids": [
+      {
+        "Key": "Bacardi",
+        "Value": 40
+      },
+      {
+        "Key": "Blue Curacao",
+        "Value": 20
+      },
+      {
+        "Key": "Pineapple Juice",
+        "Value": 40
+      }
+    ]
+  },
+  {
+    "Name": "Cobra",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 25
+      },
+      {
+        "Key": "Blue Curacao",
+        "Value": 25
+      },
+      {
+        "Key": "Malibu",
+        "Value": 25
+      },
+      {
+        "Key": "Pineapple Juice",
+        "Value": 25
+      }
+    ]
+  },
+  {
+    "Name": "French Kiss",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 10
+      },
+      {
+        "Key": "Peach Schnaps",
+        "Value": 10
+      },
+      {
+        "Key": "Orange Juice",
+        "Value": 20
+      },
+      {
+        "Key": "Liqor 43",
+        "Value": 20
+      },
+      {
+        "Key": "Cranberry Juice",
+        "Value": 20
+      },
+      {
+        "Key": "Pineapple Juice",
+        "Value": 20
+      }
+    ]
+  },
+  {
+    "Name": "Fuzzy Navel",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 15
+      },
+      {
+        "Key": "Peach Schnaps",
+        "Value": 15
+      },
+      {
+        "Key": "Orange Juice",
+        "Value": 70
+      }
+    ]
+  },
+  {
+    "Name": "Ghost Goblet",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 30
+      },
+      {
+        "Key": "Blue Curacao",
+        "Value": 15
+      },
+      {
+        "Key": "Cranberry Juice",
+        "Value": 55
+      }
+    ]
+  },
+  {
+    "Name": "Grand Cosmopolitan",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 40
+      },
+      {
+        "Key": "Blue Curacao",
+        "Value": 40
+      },
+      {
+        "Key": "Cranberry Juice",
+        "Value": 20
+      }
+    ]
+  },
+  {
+    "Name": "Hole in One",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 30
+      },
+      {
+        "Key": "Orange Juice",
+        "Value": 20
+      },
+      {
+        "Key": "Cranberry Juice",
+        "Value": 50
+      }
+    ]
+  },
+  {
+    "Name": "Hot Apple Pie",
+    "Liquids": [
+      {
+        "Key": "Apple Cider",
+        "Value": 80
+      },
+      {
+        "Key": "Liqor 43",
+        "Value": 20
+      }
+    ]
+  },
+  {
+    "Name": "Jager Bomb",
+    "Liquids": [
+      {
+        "Key": "Red Bull",
+        "Value": 75
+      },
+      {
+        "Key": "Jagermeister",
+        "Value": 25
+      }
+    ]
+  },
+  {
+    "Name": "Mikkies Delight ",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 20
+      },
+      {
+        "Key": "Peach Schnaps",
+        "Value": 20
+      },
+      {
+        "Key": "Red Bull",
+        "Value": 40
+      },
+      {
+        "Key": "Malibu",
+        "Value": 20
+      }
+    ]
+  },
+  {
+    "Name": "Peach Cobbler",
+    "Liquids": [
+      {
+        "Key": "Peach Schnaps",
+        "Value": 20
+      },
+      {
+        "Key": "Apple Cider",
+        "Value": 80
+      }
+    ]
+  },
+  {
+    "Name": "Perfect Parnum",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 20
+      },
+      {
+        "Key": "Peach Schnaps",
+        "Value": 20
+      },
+      {
+        "Key": "Orange Juice",
+        "Value": 40
+      },
+      {
+        "Key": "Malibu",
+        "Value": 20
+      }
+    ]
+  },
+  {
+    "Name": "Red Headed Slut",
+    "Liquids": [
+      {
+        "Key": "Peach Schnaps",
+        "Value": 33
+      },
+      {
+        "Key": "Jagermeister",
+        "Value": 34
+      },
+      {
+        "Key": "Cranberry Juice",
+        "Value": 33
+      }
+    ]
+  },
+  {
+    "Name": "Roodkapje",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 30
+      },
+      {
+        "Key": "Red Bull",
+        "Value": 70
+      }
+    ]
+  },
+  {
+    "Name": "Screwdriver",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 30
+      },
+      {
+        "Key": "Orange Juice",
+        "Value": 70
+      }
+    ]
+  },
+  {
+    "Name": "Sex on the Beach",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 25
+      },
+      {
+        "Key": "Peach Schnaps",
+        "Value": 25
+      },
+      {
+        "Key": "Orange Juice",
+        "Value": 25
+      },
+      {
+        "Key": "Cranberry Juice",
+        "Value": 25
+      }
+    ]
+  },
+  {
+    "Name": "2 Sex on the Beach 2",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 20
+      },
+      {
+        "Key": "Peach Schnaps",
+        "Value": 25
+      },
+      {
+        "Key": "Cranberry Juice",
+        "Value": 20
+      },
+      {
+        "Key": "Pineapple Juice",
+        "Value": 35
+      }
+    ]
+  },
+  {
+    "Name": "Shotje Surfer on Acid",
+    "Liquids": [
+      {
+        "Key": "Malibu",
+        "Value": 10
+      },
+      {
+        "Key": "Jagermeister",
+        "Value": 10
+      },
+      {
+        "Key": "Pineapple Juice",
+        "Value": 10
+      }
+    ]
+  },
+  {
+    "Name": "Soylent Green",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 25
+      },
+      {
+        "Key": "Orange Juice",
+        "Value": 60
+      },
+      {
+        "Key": "Blue Curacao",
+        "Value": 15
+      }
+    ]
+  },
+  {
+    "Name": "Splitje",
+    "Liquids": [
+      {
+        "Key": "Orange Juice",
+        "Value": 60
+      },
+      {
+        "Key": "Liqor 43",
+        "Value": 40
+      }
+    ]
+  },
+  {
+    "Name": "The Abyss",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 20
+      },
+      {
+        "Key": "Bacardi",
+        "Value": 10
+      },
+      {
+        "Key": "Blue Curacao",
+        "Value": 10
+      },
+      {
+        "Key": "Pineapple Juice",
+        "Value": 60
+      }
+    ]
+  },
+  {
+    "Name": "Whoo Whoo",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 15
+      },
+      {
+        "Key": "Peach Schnaps",
+        "Value": 15
+      },
+      {
+        "Key": "Cranberry Juice",
+        "Value": 70
+      }
+    ]
+  },
+  {
+    "Name": "Death",
+    "Liquids": [
+      {
+        "Key": "Red Wodka",
+        "Value": 20
+      },
+      {
+        "Key": "Peach Schnaps",
+        "Value": 20
+      },
+      {
+        "Key": "Apple Cider",
+        "Value": 10
+      }
+    ]
+  },
+  {
+    "Name": "Yeet",
+    "Liquids": [
+      {
+        "Key": "Apple Cider",
+        "Value": 25
+      },
+      {
+        "Key": "Orange Juice",
+        "Value": 40
+      },
+      {
+        "Key": "Liqor 43",
+        "Value": 20
+      },
+      {
+        "Key": "Cranberry Juice",
+        "Value": 15
+      }
+    ]
+  }
+]

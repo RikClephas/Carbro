@@ -27,9 +27,11 @@ namespace Carbro.Screens
     public sealed partial class Settings : Page
     {
         JsonHelper jh = new JsonHelper();
-        List<Bottles> bottleList = new List<Bottles>();
+        List<Bottle> bottleList = new List<Bottle>();
+        List<TwoFactor> TwoFactorList = new List<TwoFactor>();
         string unlockCaller = "";
-        
+        int randomNumber = 0;
+
         public Settings()
         {
             bottleList = jh.ReadBottlesJsonToList();
@@ -51,15 +53,18 @@ namespace Carbro.Screens
         private void ButtonCancel_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (PopupAddCocktail.IsOpen) { PopupAddCocktail.IsOpen = false; }
-            if (PopupUnlock.IsOpen) { PopupUnlock.IsOpen = false; }
-            unlockCaller = "";
+            if (PopupUnlock.IsOpen)
+            {
+                PopupUnlock.IsOpen = false;
+                unlockCaller = "";
+            }
         }
 
         private void Add_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            List<Cocktails> CocktailList = new List<Cocktails>();
+            List<Cocktail> CocktailList = new List<Cocktail>();
             CocktailList = jh.ReadCocktailsJsonToList();
-            Cocktails c = new Cocktails();
+            Cocktail c = new Cocktail();
             c.Name = AddCocktailNameField.Text;
             List<KeyValuePair<string, int>> listkvpBottles = new List<KeyValuePair<string, int>>();
 
@@ -75,15 +80,16 @@ namespace Carbro.Screens
                         KeyValuePair<string, int> kvpbottle = new KeyValuePair<string, int>(bottleList.Find(x => x.ID == (bottleId)).Name, Int32.Parse(((TextBox)this.FindName(bottlenumber)).Text));
                         listkvpBottles.Add(kvpbottle);
                     }
-
                 }
-
             }
             c.Liquids = listkvpBottles;
             CocktailList.Add(c);
 
             jh.WriteListToJson(CocktailList);
-            if (PopupAddCocktail.IsOpen) { PopupAddCocktail.IsOpen = false; }
+            if (PopupAddCocktail.IsOpen)
+            {
+                PopupAddCocktail.IsOpen = false;
+            }
         }
 
         private void FillBottleNamesAddCocktail()
@@ -104,19 +110,28 @@ namespace Carbro.Screens
 
         private void Unlock_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            TwoFactorList = jh.ReadTwoFactorToList();
             UnlockCodeField.Text = "";
-            if (!PopupUnlock.IsOpen) { PopupUnlock.IsOpen = true; }
+            unlockCaller = ((Button)sender).Name.ToString();
+            randomNumber = new Random().Next(0, TwoFactorList.Count());
+            KeyName.Text = TwoFactorList.ElementAt(randomNumber).Key;
+            if (!PopupUnlock.IsOpen)
+            {
+                PopupUnlock.IsOpen = true;
+            }
             UnlockCodeField.Focus(FocusState.Pointer);
             UnlockCodeField.SelectAll();
-            unlockCaller = ((Button)sender).Name.ToString();
         }
 
         private void Unlock_Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (UnlockCodeField.Text == "1234")
+            if (UnlockCodeField.Text == TwoFactorList.ElementAt(randomNumber).Pass)
             {
                 UnlockCodeField.Text = "";
-                if (PopupUnlock.IsOpen) { PopupUnlock.IsOpen = false; }
+                if (PopupUnlock.IsOpen)
+                {
+                    PopupUnlock.IsOpen = false;
+                }
                 switch(unlockCaller)
                 {
                     case "removeCocktailLock":

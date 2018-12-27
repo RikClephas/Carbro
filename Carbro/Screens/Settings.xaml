@@ -158,6 +158,12 @@
                             <Setter Property="Height" Value="100"/>
                         </Style>
                     </StackPanel.Resources>
+                    <StackPanel x:Name="KeyNamePanel">
+                        <Grid>
+                            <TextBlock Text="Key:" Width="150" Margin="0,30,0,30" FontSize="30" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+                            <TextBlock Foreground="#00AA00" Width="150" Margin="190,30,0,30" x:Name="KeyName" FontSize="30" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
+                        </Grid>
+                    </StackPanel>
                     <StackPanel x:Name="UnlockCodePanel">
                         <TextBox PlaceholderText="Enter Code" Width="440" Margin="0,30,0,30" x:Name="UnlockCodeField" InputScope="Number" FontSize="30" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std"/>
                     </StackPanel>
@@ -219,7 +225,7 @@
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="CleanMachineLock" Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="370,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
+        <Button x:Name="cleanMachineLock" Content="" Tapped="Unlock_Tapped" HorizontalAlignment="Left" Margin="370,600,0,0" VerticalAlignment="Top" Width="48" Height="48" FontFamily="/Assets/Fonts/HoboStd.otf#Hobo Std">
             <Button.Background>
                 <ImageBrush ImageSource="/Assets/Icons/Icon_ClosedLock.png"/>
             </Button.Background>

@@ -29,26 +29,22 @@ namespace Carbro.Screens
     /// </summary>
     public sealed partial class Screen_RemoveCocktail : Page
     {
-        bool emulation = true;
-
-        List<Cocktails> cocktaillist;
-        List<Bottles> bottleList;
+        List<Cocktail> cocktaillist;
+        List<Bottle> bottleList;
         JsonHelper jh = new JsonHelper();
         string CocktailName = "";
 
         public Screen_RemoveCocktail()
         {
-            
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
             ApplicationView.PreferredLaunchViewSize = new Size(1280, 800);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             this.InitializeComponent();
-            cocktaillist = new List<Cocktails>();
+            cocktaillist = new List<Cocktail>();
             cocktaillist = jh.ReadCocktailsJsonToList();
-            bottleList = new List<Bottles>();
+            bottleList = new List<Bottle>();
             bottleList = jh.ReadBottlesJsonToList();
             addCocktails();
-            
         }
 
         public void addCocktails()
@@ -75,31 +71,39 @@ namespace Carbro.Screens
             GeneratePopup(((Button)sender).Content.ToString());
             CocktailName = ((Button)sender).Content.ToString();
             // open the Popup if it isn't open already 
-            if (!PopupRemoveCocktail.IsOpen) { PopupRemoveCocktail.IsOpen = true; }
+            if (!PopupRemoveCocktail.IsOpen)
+            {
+                PopupRemoveCocktail.IsOpen = true;
+            }
         }
         private void ButtonStop_Tapped(object sender, RoutedEventArgs e)
         {
             // if the Popup is open, then close it 
-            if (PopupRemoveCocktail.IsOpen) { PopupRemoveCocktail.IsOpen = false; }
+            if (PopupRemoveCocktail.IsOpen)
+            {
+                PopupRemoveCocktail.IsOpen = false;
+            }
         }
 
         private void ButtonCancel_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (PopupRemoveCocktail.IsOpen) { PopupRemoveCocktail.IsOpen = false; }
+            if (PopupRemoveCocktail.IsOpen)
+            {
+                PopupRemoveCocktail.IsOpen = false;
+            }
         }
 
         public void GeneratePopup(string cocktailName)
         {
-            Cocktails c = cocktaillist.Find(x => x.Name == cocktailName);
+            Cocktail c = cocktaillist.Find(x => x.Name == cocktailName);
             RemoveCocktailNameField.Text = "";
             RemoveCocktailNameField.Text = c.Name;
-            FillBottleNamesRemoveCocktail();
-            FillPercentageRemoveCocktail(c);
+            FillBottleNamesRemoveCocktail(c);
         }
 
         private void Remove_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Cocktails c = cocktaillist.Find(x => x.Name == CocktailName);
+            Cocktail c = cocktaillist.Find(x => x.Name == CocktailName);
             c.Name = RemoveCocktailNameField.Text;
             List<KeyValuePair<string, int>> listkvpBottles = new List<KeyValuePair<string, int>>();
 
@@ -115,9 +119,7 @@ namespace Carbro.Screens
                         KeyValuePair<string, int> kvpbottle = new KeyValuePair<string, int>(bottleList.Find(x => x.ID == (bottleId)).Name, Int32.Parse(((TextBox)this.FindName(bottlenumber)).Text));
                         listkvpBottles.Add(kvpbottle);
                     }
-
                 }
-
             }
             c.Liquids = listkvpBottles;
             cocktaillist.Remove(c);
@@ -131,30 +133,29 @@ namespace Carbro.Screens
             this.Frame.Navigate(typeof(UnlockedSettings));
         }
 
-        private void FillBottleNamesRemoveCocktail()
+        private void FillBottleNamesRemoveCocktail(Cocktail c)
         {
             int bottleId = 2000;
             string bottlenumber;
             string percentagenumber;
+            string bottlename;
             for (int i = 1; i < bottleList.Count + 1; i++)
             {
                 bottlenumber = "Bottle" + i.ToString();
                 percentagenumber = "Percentage" + i.ToString();
                 bottleId++;
-                ((TextBox)this.FindName(percentagenumber)).Text = "";
-                ((TextBlock)this.FindName(bottlenumber)).Text = bottleList.Find(x => x.ID == (bottleId)).Name;
-            }
-        }
 
-        private void FillPercentageRemoveCocktail(Cocktails c)
-        {
-            int i = 1;
-            string percentagenumber;
-            foreach (var item in c.Liquids)
-            {
-                percentagenumber = "Percentage" + i.ToString();
-                ((TextBox)this.FindName(percentagenumber)).Text = item.Value.ToString();
-                i++;
+                bottlename = bottleList.Find(x => x.ID == (bottleId)).Name;
+                ((TextBlock)this.FindName(bottlenumber)).Text = bottlename;
+                ((TextBox)this.FindName(percentagenumber)).Text = "";
+                foreach (var item in c.Liquids)
+                {
+                    if (item.Key == bottlename)
+                    {
+                        percentagenumber = "Percentage" + i.ToString();
+                        ((TextBox)this.FindName(percentagenumber)).Text = item.Value.ToString();
+                    }
+                }
             }
         }
 

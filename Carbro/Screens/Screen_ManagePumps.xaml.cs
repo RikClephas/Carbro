@@ -29,10 +29,10 @@ namespace Carbro.Screens
         JsonHelper jh = new JsonHelper();
 
         private GpioPin[] _pins = new GpioPin[12];
-        double unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-        double StopTime;
-        List<Bottles> bottles = null;
-        private Bottles bottle = null;
+        double startTime = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+        double currentTime;
+        List<Bottle> bottles = null;
+        private Bottle bottle = null;
         bool IOinitialized = false;
 
         public ManagePumps()
@@ -90,8 +90,8 @@ namespace Carbro.Screens
                 string buttonName = rb.Content.ToString().ToLower();
                 if(buttonName == "stop")
                 {
-                    StopTime = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-                    newValue.Text = ((int)((StopTime - unixTimestamp)*10)).ToString();
+                    currentTime = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                    newValue.Text = ((int)((currentTime - startTime)*10)).ToString();
                     saveButton.Visibility = Visibility.Visible;
                 }
                 else
@@ -102,7 +102,7 @@ namespace Carbro.Screens
                         {
                             _pins[buttonNumber - 1].Write(GpioPinValue.High);
                         }
-                        unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                        startTime = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
                         bottle = bottles.Find(x => x.BottleNumber == buttonNumber);
                         oldValue.Text = bottle.Calibration.ToString();
                         newValue.Text = "0";

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Carbro.Core
 {
-    class Cocktails
+    class Cocktail
     {
         public string Name { get; set; }
         public List<KeyValuePair<string, int>> Liquids { get; set; }
 
-        public Cocktails()
+        public Cocktail()
         {
             Liquids = new List<KeyValuePair<string, int>>();
         }

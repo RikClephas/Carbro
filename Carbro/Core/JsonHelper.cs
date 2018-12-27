@@ -17,13 +17,13 @@ namespace Carbro.Core
         // Windows.Storage.StorageFolder installedLocation = Windows.ApplicationModel.Package.Current.InstalledLocation;
         private string path; //"ms-appx:///JsonFiles/Cocktails.json"; //"C:\\Users\\Jesse\\Videos\\CocktailMakerJson\\Cocktails.json
         private string path2;
-        private string pathttf;
-        private string pathotf;
+        private string path3;
 
         public JsonHelper()
         {
             path = localFolder.Path + "\\Cocktails.json";
             path2 = localFolder.Path + "\\Bottles.json";
+            path3 = localFolder.Path + "\\2FA.json";
 
             // path = installedLocation.Path + "\\Cocktails.json";
 
@@ -31,7 +31,7 @@ namespace Carbro.Core
 
 
 
-        internal async void WriteListToJson(List<Cocktails> cocktailList)
+        internal async void WriteListToJson(List<Cocktail> cocktailList)
         {
 
             await Task.Run(() =>
@@ -42,25 +42,30 @@ namespace Carbro.Core
             });
         }
 
-        internal List<Cocktails> ReadCocktailsJsonToList()
+        internal List<Cocktail> ReadCocktailsJsonToList()
         {
             string list = "";
 
             list = File.ReadAllText(path);
-            return JsonConvert.DeserializeObject<List<Cocktails>>(list);
+            return JsonConvert.DeserializeObject<List<Cocktail>>(list);
 
         }
 
-        internal List<Bottles> ReadBottlesJsonToList()
+        internal List<Bottle> ReadBottlesJsonToList()
         {
             string list = "";
 
             list = File.ReadAllText(path2);
-            return JsonConvert.DeserializeObject<List<Bottles>>(list);
+            return JsonConvert.DeserializeObject<List<Bottle>>(list);
 
         }
 
-        internal async void WriteDrinksListToJson(List<Bottles> Bottlelist)
+        internal List<TwoFactor> ReadTwoFactorToList()
+        {
+            return JsonConvert.DeserializeObject<List<TwoFactor>>(File.ReadAllText(path3));
+        }
+
+        internal async void WriteDrinksListToJson(List<Bottle> Bottlelist)
         {
 
             await Task.Run(() =>
@@ -69,4 +74,4 @@ namespace Carbro.Core
             });
         }
     }
-    }
+}
