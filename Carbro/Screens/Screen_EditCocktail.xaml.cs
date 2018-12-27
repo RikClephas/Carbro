@@ -75,6 +75,7 @@ namespace Carbro.Screens
             // open the Popup if it isn't open already 
             if (!PopupEditCocktail.IsOpen) { PopupEditCocktail.IsOpen = true; }
         }
+
         private void ButtonStop_Tapped(object sender, RoutedEventArgs e)
         {
             // if the Popup is open, then close it 
@@ -89,10 +90,8 @@ namespace Carbro.Screens
         public void GeneratePopup(string cocktailName)
         {
             Cocktails c = cocktaillist.Find(x => x.Name == cocktailName);
-            EditCocktailNameField.Text = "";
             EditCocktailNameField.Text = c.Name;
-            FillBottleNamesEditCocktail();
-            FillPercentageEditCocktail(c);
+            FillBottleNamesEditCocktail(c);
         }
 
         private void Edit_Tapped(object sender, TappedRoutedEventArgs e)
@@ -138,30 +137,29 @@ namespace Carbro.Screens
             this.Frame.Navigate(typeof(Settings));
         }
 
-        private void FillBottleNamesEditCocktail()
+        private void FillBottleNamesEditCocktail(Cocktails c)
         {
             int bottleId = 2000;
             string bottlenumber;
             string percentagenumber;
+            string bottlename;
             for (int i = 1; i < bottleList.Count + 1; i++)
             {
                 bottlenumber = "Bottle" + i.ToString();
                 percentagenumber = "Percentage" + i.ToString();
                 bottleId++;
+                
+                bottlename = bottleList.Find(x => x.ID == (bottleId)).Name;
+                ((TextBlock)this.FindName(bottlenumber)).Text = bottlename;
                 ((TextBox)this.FindName(percentagenumber)).Text = "";
-                ((TextBlock)this.FindName(bottlenumber)).Text = bottleList.Find(x => x.ID == (bottleId)).Name;
-            }
-        }
-
-        private void FillPercentageEditCocktail(Cocktails c)
-        {
-            int i = 1;
-            string percentagenumber;
-            foreach (var item in c.Liquids)
-            {
-                percentagenumber = "Percentage" + i.ToString();
-                ((TextBox)this.FindName(percentagenumber)).Text = item.Value.ToString();
-                i++;
+                foreach (var item in c.Liquids)
+                {
+                    if (item.Key == bottlename)
+                    {
+                        percentagenumber = "Percentage" + i.ToString();
+                        ((TextBox)this.FindName(percentagenumber)).Text = item.Value.ToString();
+                    }
+                }
             }
         }
 

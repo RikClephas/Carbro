@@ -16,10 +16,5 @@ namespace Carbro.Core
         {
             Liquids = new List<KeyValuePair<string, int>>();
         }
-
-
-
-
-
     }
 }
